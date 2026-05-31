@@ -426,7 +426,7 @@ server.registerTool(
   "read_graph",
   {
     title: "Read Graph",
-    description: "Read the entire knowledge graph. Optional params: metadataOnly (names/types only), includeObservations (default true), observationLimit (max per entity), entityTypes (filter by types).",
+    description: "Read the entire knowledge graph. To prevent memory bloat and handle large graphs, use optional params: metadataOnly (names/types only), includeObservations (default true), observationLimit (max per entity), entityTypes (filter by types).",
     inputSchema: {
       includeObservations: z.boolean().optional().describe("Whether to include observation content (default: true)"),
       observationLimit: z.number().int().positive().optional().describe("Max observations per entity"),
@@ -449,7 +449,7 @@ server.registerTool(
   "search_nodes",
   {
     title: "Search Nodes",
-    description: "Search for nodes by query. Optional: includeObservations (default true), limit (max entities), observationLimit (max per entity).",
+    description: "Search for nodes by query. To prevent memory bloat, use optional: includeObservations (default true), limit (max entities), observationLimit (max per entity).",
     inputSchema: {
       query: z.string().describe("Search query"),
       includeObservations: z.boolean().optional().describe("Include observations (default: true)"),
@@ -472,7 +472,7 @@ server.registerTool(
   "open_nodes",
   {
     title: "Open Nodes",
-    description: "Open specific nodes by name. Optional: includeObservations (default true), observationLimit, observationOffset (for pagination).",
+    description: "Open specific nodes by name. To prevent memory bloat, use optional: includeObservations (default true), observationLimit, observationOffset (for pagination).",
     inputSchema: {
       names: z.array(z.string()).describe("Entity names to retrieve"),
       includeObservations: z.boolean().optional().describe("Include observations (default: true)"),

@@ -1,0 +1,11 @@
+node_modules
+coverage
+dist
+
+# Local memory files
+memory.json
+memory.jsonl
+test-memory-*.jsonl
+
+# OS files
+.DS_Store

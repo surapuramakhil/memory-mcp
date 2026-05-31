@@ -262,6 +262,36 @@ describe('KnowledgeGraphManager', () => {
       expect(graph.entities).toHaveLength(1);
       expect(graph.relations).toHaveLength(1);
     });
+
+    it('should support metadataOnly flag', async () => {
+      await manager.createEntities([
+        { name: 'Alice', entityType: 'person', observations: ['works at Acme Corp'] },
+      ]);
+
+      const graph = await manager.readGraph({ metadataOnly: true });
+      expect(graph.entities[0].observations).toEqual([]);
+    });
+
+    it('should support entityTypes filter', async () => {
+      await manager.createEntities([
+        { name: 'Alice', entityType: 'person', observations: [] },
+        { name: 'Acme', entityType: 'company', observations: [] },
+      ]);
+
+      const graph = await manager.readGraph({ entityTypes: ['person'] });
+      expect(graph.entities).toHaveLength(1);
+      expect(graph.entities[0].name).toBe('Alice');
+    });
+
+    it('should support observationLimit', async () => {
+      await manager.createEntities([
+        { name: 'Alice', entityType: 'person', observations: ['obs1', 'obs2', 'obs3'] },
+      ]);
+
+      const graph = await manager.readGraph({ observationLimit: 2 });
+      expect(graph.entities[0].observations).toHaveLength(2);
+      expect(graph.entities[0].observations).toEqual(['obs1', 'obs2']);
+    });
   });
 
   describe('searchNodes', () => {
@@ -322,6 +352,19 @@ describe('KnowledgeGraphManager', () => {
       const result = await manager.searchNodes('NonExistent');
       expect(result.entities).toHaveLength(0);
       expect(result.relations).toHaveLength(0);
+    });
+
+    it('should support limit parameter', async () => {
+      await manager.createEntities([
+        { name: 'Alice1', entityType: 'person', observations: [] },
+        { name: 'Alice2', entityType: 'person', observations: [] },
+        { name: 'Alice3', entityType: 'person', observations: [] },
+      ]);
+
+      const result = await manager.searchNodes('Alice', { limit: 2 });
+      // Depending on search results order, it should cap at 2. Plus the original Alice.
+      // We have Alice and Alice1,2,3 which makes 4. Capped at 2.
+      expect(result.entities).toHaveLength(2);
     });
   });
 
@@ -392,6 +435,16 @@ describe('KnowledgeGraphManager', () => {
       const result = await manager.openNodes([]);
       expect(result.entities).toHaveLength(0);
       expect(result.relations).toHaveLength(0);
+    });
+
+    it('should support observation pagination (offset and limit)', async () => {
+      await manager.createEntities([
+        { name: 'Dave', entityType: 'person', observations: ['obs1', 'obs2', 'obs3', 'obs4'] },
+      ]);
+
+      const result = await manager.openNodes(['Dave'], { observationOffset: 1, observationLimit: 2 });
+      expect(result.entities).toHaveLength(1);
+      expect(result.entities[0].observations).toEqual(['obs2', 'obs3']);
     });
   });
 

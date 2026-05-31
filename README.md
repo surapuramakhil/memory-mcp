@@ -50,6 +50,13 @@ Example:
 }
 ```
 
+### Scalable Memory
+To prevent memory bloat and maintain performance with large knowledge graphs, the server supports scalable memory access:
+- **Pagination**: Use `observationOffset` and `observationLimit` to paginate through large lists of observations.
+- **Metadata Only**: Fetch only entity names and types without loading observations using `metadataOnly`.
+- **Filtering**: Filter graph retrieval by specific `entityTypes`.
+- **Search Limits**: Cap the number of returned entities during searches with `limit`.
+
 ## API
 
 ### Tools
@@ -105,12 +112,20 @@ Example:
 
 - **read_graph**
   - Read the entire knowledge graph
-  - No input required
+  - Optional Input:
+    - `includeObservations` (boolean): Whether to include observation content (default: true)
+    - `observationLimit` (number): Max observations per entity
+    - `entityTypes` (string[]): Filter entities by types
+    - `metadataOnly` (boolean): Return only entity names and types, no observations
   - Returns complete graph structure with all entities and relations
 
 - **search_nodes**
   - Search for nodes based on query
   - Input: `query` (string)
+  - Optional Input:
+    - `includeObservations` (boolean): Include observations (default: true)
+    - `limit` (number): Max entities to return
+    - `observationLimit` (number): Max observations per entity
   - Searches across:
     - Entity names
     - Entity types
@@ -120,6 +135,10 @@ Example:
 - **open_nodes**
   - Retrieve specific nodes by name
   - Input: `names` (string[])
+  - Optional Input:
+    - `includeObservations` (boolean): Include observations (default: true)
+    - `observationLimit` (number): Max observations per entity
+    - `observationOffset` (number): Observations to skip (for pagination)
   - Returns:
     - Requested entities
     - Relations between requested entities
