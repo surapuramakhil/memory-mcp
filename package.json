@@ -1,15 +1,15 @@
 {
-  "name": "@modelcontextprotocol/server-memory",
+  "name": "@surapuramakhil/memory-mcp",
   "version": "0.6.3",
   "description": "MCP server for enabling memory for Claude through a knowledge graph",
   "license": "SEE LICENSE IN LICENSE",
-  "mcpName": "io.github.modelcontextprotocol/server-memory",
-  "author": "Model Context Protocol a Series of LF Projects, LLC.",
-  "homepage": "https://modelcontextprotocol.io",
-  "bugs": "https://github.com/modelcontextprotocol/servers/issues",
+  "mcpName": "io.github.surapuramakhil/memory-mcp",
+  "author": "Akhil Surapuram",
+  "homepage": "https://github.com/surapuramakhil/memory-mcp#readme",
+  "bugs": "https://github.com/surapuramakhil/memory-mcp/issues",
   "repository": {
     "type": "git",
-    "url": "https://github.com/modelcontextprotocol/servers.git"
+    "url": "https://github.com/surapuramakhil/memory-mcp.git"
   },
   "type": "module",
   "bin": {

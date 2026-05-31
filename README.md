@@ -138,7 +138,7 @@ Add this to your claude_desktop_config.json:
   "mcpServers": {
     "memory": {
       "command": "docker",
-      "args": ["run", "-i", "-v", "claude-memory:/app/dist", "--rm", "mcp/memory"]
+      "args": ["run", "-i", "-v", "claude-memory:/app/dist", "--rm", "ghcr.io/surapuramakhil/memory-mcp"]
     }
   }
 }
@@ -152,7 +152,7 @@ Add this to your claude_desktop_config.json:
       "command": "npx",
       "args": [
         "-y",
-        "@modelcontextprotocol/server-memory"
+        "@surapuramakhil/memory-mcp"
       ]
     }
   }
@@ -170,7 +170,7 @@ On Windows, use `cmd /c` to launch `npx`:
         "/c",
         "npx",
         "-y",
-        "@modelcontextprotocol/server-memory"
+        "@surapuramakhil/memory-mcp"
       ]
     }
   }
@@ -188,7 +188,7 @@ The server can be configured using the following environment variables:
       "command": "npx",
       "args": [
         "-y",
-        "@modelcontextprotocol/server-memory"
+        "@surapuramakhil/memory-mcp"
       ],
       "env": {
         "MEMORY_FILE_PATH": "/path/to/custom/memory.jsonl"
@@ -209,7 +209,7 @@ On Windows, use:
         "/c",
         "npx",
         "-y",
-        "@modelcontextprotocol/server-memory"
+        "@surapuramakhil/memory-mcp"
       ],
       "env": {
         "MEMORY_FILE_PATH": "/path/to/custom/memory.jsonl"
@@ -225,9 +225,9 @@ On Windows, use:
 
 For quick installation, use one of the one-click installation buttons below:
 
-[![Install with NPX in VS Code](https://img.shields.io/badge/VS_Code-NPM-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://insiders.vscode.dev/redirect/mcp/install?name=memory&config=%7B%22command%22%3A%22npx%22%2C%22args%22%3A%5B%22-y%22%2C%22%40modelcontextprotocol%2Fserver-memory%22%5D%7D) [![Install with NPX in VS Code Insiders](https://img.shields.io/badge/VS_Code_Insiders-NPM-24bfa5?style=flat-square&logo=visualstudiocode&logoColor=white)](https://insiders.vscode.dev/redirect/mcp/install?name=memory&config=%7B%22command%22%3A%22npx%22%2C%22args%22%3A%5B%22-y%22%2C%22%40modelcontextprotocol%2Fserver-memory%22%5D%7D&quality=insiders)
+[![Install with NPX in VS Code](https://img.shields.io/badge/VS_Code-NPM-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://insiders.vscode.dev/redirect/mcp/install?name=memory&config=%7B%22command%22%3A%22npx%22%2C%22args%22%3A%5B%22-y%22%2C%22%40surapuramakhil%2Fmemory-mcp%22%5D%7D) [![Install with NPX in VS Code Insiders](https://img.shields.io/badge/VS_Code_Insiders-NPM-24bfa5?style=flat-square&logo=visualstudiocode&logoColor=white)](https://insiders.vscode.dev/redirect/mcp/install?name=memory&config=%7B%22command%22%3A%22npx%22%2C%22args%22%3A%5B%22-y%22%2C%22%40surapuramakhil%2Fmemory-mcp%22%5D%7D&quality=insiders)
 
-[![Install with Docker in VS Code](https://img.shields.io/badge/VS_Code-Docker-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://insiders.vscode.dev/redirect/mcp/install?name=memory&config=%7B%22command%22%3A%22docker%22%2C%22args%22%3A%5B%22run%22%2C%22-i%22%2C%22-v%22%2C%22claude-memory%3A%2Fapp%2Fdist%22%2C%22--rm%22%2C%22mcp%2Fmemory%22%5D%7D) [![Install with Docker in VS Code Insiders](https://img.shields.io/badge/VS_Code_Insiders-Docker-24bfa5?style=flat-square&logo=visualstudiocode&logoColor=white)](https://insiders.vscode.dev/redirect/mcp/install?name=memory&config=%7B%22command%22%3A%22docker%22%2C%22args%22%3A%5B%22run%22%2C%22-i%22%2C%22-v%22%2C%22claude-memory%3A%2Fapp%2Fdist%22%2C%22--rm%22%2C%22mcp%2Fmemory%22%5D%7D&quality=insiders)
+[![Install with Docker in VS Code](https://img.shields.io/badge/VS_Code-Docker-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://insiders.vscode.dev/redirect/mcp/install?name=memory&config=%7B%22command%22%3A%22docker%22%2C%22args%22%3A%5B%22run%22%2C%22-i%22%2C%22-v%22%2C%22claude-memory%3A%2Fapp%2Fdist%22%2C%22--rm%22%2C%22ghcr.io%2Fsurapuramakhil%2Fmemory-mcp%22%5D%7D) [![Install with Docker in VS Code Insiders](https://img.shields.io/badge/VS_Code_Insiders-Docker-24bfa5?style=flat-square&logo=visualstudiocode&logoColor=white)](https://insiders.vscode.dev/redirect/mcp/install?name=memory&config=%7B%22command%22%3A%22docker%22%2C%22args%22%3A%5B%22run%22%2C%22-i%22%2C%22-v%22%2C%22claude-memory%3A%2Fapp%2Fdist%22%2C%22--rm%22%2C%22ghcr.io%2Fsurapuramakhil%2Fmemory-mcp%22%5D%7D&quality=insiders)
 
 For manual installation, you can configure the MCP server using one of these methods:
 
@@ -248,7 +248,7 @@ Alternatively, you can add the configuration to a file called `.vscode/mcp.json`
       "command": "npx",
       "args": [
         "-y",
-        "@modelcontextprotocol/server-memory"
+        "@surapuramakhil/memory-mcp"
       ]
     }
   }
@@ -266,7 +266,7 @@ On Windows, use:
         "/c",
         "npx",
         "-y",
-        "@modelcontextprotocol/server-memory"
+        "@surapuramakhil/memory-mcp"
       ]
     }
   }
@@ -286,7 +286,7 @@ On Windows, use:
         "-v",
         "claude-memory:/app/dist",
         "--rm",
-        "mcp/memory"
+        "ghcr.io/surapuramakhil/memory-mcp"
       ]
     }
   }
@@ -330,10 +330,10 @@ Follow these steps for each interaction:
 Docker:
 
 ```sh
-docker build -t mcp/memory -f src/memory/Dockerfile . 
+docker build -t ghcr.io/surapuramakhil/memory-mcp . 
 ```
 
-For Awareness: a prior mcp/memory volume contains an index.js file that could be overwritten by the new container. If you are using a docker volume for storage, delete the old docker volume's `index.js` file before starting the new container.
+For Awareness: a prior ghcr.io/surapuramakhil/memory-mcp volume contains an index.js file that could be overwritten by the new container. If you are using a docker volume for storage, delete the old docker volume's `index.js` file before starting the new container.
 
 ## License
 
