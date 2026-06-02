@@ -292,25 +292,6 @@ On Windows, use:
 }
 ```
 
-#### Docker
-
-```json
-{
-  "servers": {
-    "memory": {
-      "command": "docker",
-      "args": [
-        "run",
-        "-i",
-        "-v",
-        "claude-memory:/app/dist",
-        "--rm",
-        "ghcr.io/surapuramakhil/memory-mcp"
-      ]
-    }
-  }
-}
-```
 
 ### System Prompt
 
